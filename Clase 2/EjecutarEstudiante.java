@@ -8,5 +8,6 @@ public class EjecutarEstudiante {
         System.out.println(objEst1);
         System.out.println(objEst2);
         System.out.println(objEst3);
+        
     }
 }
