@@ -21,8 +21,8 @@ public class segundo {
     }
 
     public static void main(String[] args) {
-        System.out.println(segundoMayor(new int[]{10,40,30,20,50})); // 40
-        System.out.println(segundoMayor(new int[]{5,5,5,5,9}));     // 5
-        System.out.println(segundoMayor(new int[]{-3,-1,-7,-2}));   // -2
+        System.out.println(segundoMayor(new int[]{10,40,30,20,50})); 
+        System.out.println(segundoMayor(new int[]{5,4,7,3,9}));     
+        System.out.println(segundoMayor(new int[]{-3,-1,-7,-2}));   
     }
 }

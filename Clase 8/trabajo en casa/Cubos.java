@@ -12,7 +12,7 @@ public class Cubos {
         double raizA = Math.sqrt(aVal);
         double raizCubicaB = Math.cbrt(bVal);
 
-        return Math.abs(raizA - raizCubicaB) < 1e-6;
+        return Math.abs(raizA - raizCubicaB) < 0.0001;
     }
 
     public static void main(String[] args) {
