@@ -1,89 +1,75 @@
- public class nodoArbol {
+public class nodoArbol {
     //1 . visitar raiz
-    //2 . recorrer subarbol izquierdo
-    //3 . recorrer subarbol derecho
-    private nodoArbol nodoizquierdo;
-    private nodoArbol nododerecho;
+    //2 . recorrer subarbol nodoIzquierdo
+    //3 . recorrer subarbol nodoDerecho
+    private nodoArbol nodoIzquierdo;
+    private nodoArbol nodoDerecho;
     private int valor;
- 
     public nodoArbol(int valor) {
         this.valor = valor;
-        this.nodoizquierdo = null;
-        this.nododerecho = null;
-   
+        this.nodoIzquierdo = null;
+        this.nodoDerecho = null;
     }
- 
     public int getValor() {
         return valor;
     }
-    public nodoArbol getHijoIzquierdo() {
-        return nodoizquierdo;
+    public nodoArbol getNodoIzquierdo() {
+        return nodoIzquierdo;
     }
-    public nodoArbol getHijoDerecho() {
-        return nododerecho;
+    public nodoArbol getNodoDerecho() {
+        return nodoDerecho;
     }
- 
-    //setters
     public void setValor(int valor) {
         this.valor = valor;
     }
-    public void setHijoIzquierdo(nodoArbol hijo_izquierdo) {//asigna un nodo al hijo izquierdo
-        this.nodoizquierdo = hijo_izquierdo;
+    public void setNodoIzquierdo(nodoArbol nodoIzquierdo) { //asigna un nodo al nodoIzquierdo
+        this.nodoIzquierdo = nodoIzquierdo;
     }
-    public void setHijoDerecho(nodoArbol hijo_derecho) {//asigna un nodo al hijo derecho
-        this.nododerecho = hijo_derecho;
+    public void setNodoDerecho(nodoArbol nodoDerecho) { //asigna un nodo al nodoDerecho
+        this.nodoDerecho = nodoDerecho;
     }
- 
 }
- 
- class ArbolBinario {
+class ArbolBinario {
     private nodoArbol raiz;
- 
     public ArbolBinario() {
         this.raiz = null;
     }
- 
     public nodoArbol getRaiz() {
         return raiz;
     }
- 
     public void setRaiz(nodoArbol raiz) {
         this.raiz = raiz;
     }
- 
-   
-   
-    public void recorridoPreorden () {
+    public void recorridoPreorden() {
         System.out.println("Recorrido en Preorden: ");
         recorrido(raiz);// llama al metodo recursivo recorrido pasandole la raiz como punto de inicio
     }
-     private void recorrido(nodoArbol nodo) {
+    private void recorrido(nodoArbol nodo) {
         if (nodo == null) {
             return;
         }
         System.out.println(nodo.getValor());// visita el nodo actual
-        recorrido(nodo.getHijoIzquierdo());// recorre el subarbol izquierdo
-        recorrido(nodo.getHijoDerecho());// recorre el subarbol derecho
-        //se detiene cuando encuentra un nodo nulo
+        recorrido(nodo.getNodoIzquierdo());// recorre el subarbol nodoIzquierdo
+        recorrido(nodo.getNodoDerecho());// recorre el subarbol nodoDerecho
+        // se detiene cuando encuentra un nodo nulo
     }
-   
-    public void insertar(int valor) {// recibe el nuevo valor y llama al  metodo recursivo insertarValor
+    public void insertar(int valor) { // recibe el nuevo valor y llama al método recursivo insertarValor
         raiz = insertarValor(raiz, valor);// raiz es el punto de partida
     }
     public nodoArbol insertarValor(nodoArbol nodo, int valor) {
-        if (nodo == null) {// cuando encuetra un espacio vacio crea un nuevo nodo y lo enlaza al padre
+        if (nodo == null) {// cuando encuentra un espacio vacío crea un nuevo nodo y lo enlaza al padre
             return new nodoArbol(valor);
         }
-    //decide si insertar a la izquierda o derecha
+        // decide si insertar en nodoIzquierdo o nodoDerecho
         if (valor < nodo.getValor()) {
-            nodo.setHijoIzquierdo(insertarValor(nodo.getHijoIzquierdo(), valor));
+            nodo.setNodoIzquierdo(insertarValor(nodo.getNodoIzquierdo(), valor));
         } else if (valor > nodo.getValor()) {
-            nodo.setHijoDerecho(insertarValor(nodo.getHijoDerecho(), valor));
+            nodo.setNodoDerecho(insertarValor(nodo.getNodoDerecho(), valor));
         }
         return nodo;
     }
- 
     public static void main(String[] args) {
+
         ArbolBinario arbol = new ArbolBinario();
         arbol.insertar(42);
         arbol.insertar(9);
@@ -93,8 +79,9 @@
         arbol.insertar(49);
         arbol.insertar(33);
         arbol.insertar(21);
- 
-      arbol.recorridoPreorden();
+        arbol.recorridoPreorden();
+
     }
+
 }
  
